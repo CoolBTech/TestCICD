@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Binisten.kaspar\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Binisten.kaspar\\.nuget\\packages"
+    ]
+  }
+}
