@@ -21,8 +21,7 @@ jobs:
           docker_layer_caching: false
       - run:
           name: Build and push Docker image
-          command: |
-            docker build --pull -t Test.CICDFlow .
+          command: dotnet run
            # echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
            # docker tag boku herocod3r/MyProject
           #  docker push herocod3r/MyProject
