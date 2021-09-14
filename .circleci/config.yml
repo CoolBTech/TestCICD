@@ -1,10 +1,11 @@
 version: 2
 jobs:
- build:
-   machine: true
-   steps:
-     - checkout
-
-     # test
-     - run: |
-         docker-compose -f docker-compose.unittests.yml run --rm unittests
+  build:
+    docker:
+      - image: microsoft/aspnetcore-build:2.0
+    steps:
+      - checkout
+      - run: find .
+      - run: dotnet restore
+      - run: dotnet build
+      - run: dotnet test --no-build Test.CICDFlow
