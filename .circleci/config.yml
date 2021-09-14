@@ -5,9 +5,9 @@ jobs:
       - image: mcr.microsoft.com/dotnet/sdk:3.1
     steps:
       - checkout
-      #- setup_remote_docker:
-       #   version: 19.03.13
-       #   docker_layer_caching: false
+      - setup_remote_docker:
+           version: 19.03.13
+           docker_layer_caching: false
       - run: find .
       - run: dotnet restore
       - run: dotnet build
