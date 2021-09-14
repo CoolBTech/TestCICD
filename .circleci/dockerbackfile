@@ -1,0 +1,28 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:3.1
+    steps:
+      - checkout
+      - run:
+          name: Restore
+          command: dotnet restore
+          working_directory: Test.CICDFlow
+      - run:
+          name: Build
+          command: dotnet build -c Release
+          working_directory: Test.CICDFlow
+      - run:
+          name: Running Tests
+          command: dotnet test
+          working_directory: Test.CICDFlow
+      - setup_remote_docker:
+          docker_layer_caching: false
+      - run:
+          name: Build and deploy
+          command: docker info
+
+           # echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
+           # docker tag boku herocod3r/MyProject
+          #  docker push herocod3r/MyProject
