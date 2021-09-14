@@ -1,10 +1,8 @@
 version: 2
 jobs:
   build:
-    machine: true
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:3.1
-      - image: cimg/base:2021.04
     steps:
       - checkout
       - setup_remote_docker:
@@ -14,6 +12,7 @@ jobs:
       - run: dotnet restore
       - run: dotnet build
       - run: dotnet test --no-build Test.CICDFlow
-      - run: |
-         docker info
-         docker build -t aspnetapp -f Dockerfile .
+      - run: 
+          command: |
+             docker info
+             docker build -t aspnetapp -f Dockerfile .
