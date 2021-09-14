@@ -20,8 +20,8 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: false
       - run:
-           command: docker info
-            command: docker build -t aspnetapp Test.CICDFlow
+          name: Build and deploy
+          command: docker info
 
            # echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
            # docker tag boku herocod3r/MyProject
