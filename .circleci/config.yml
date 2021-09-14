@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:3.1
-    machine: true
     steps:
       - checkout
       #- setup_remote_docker:
@@ -13,6 +12,9 @@ jobs:
       - run: dotnet restore
       - run: dotnet build
       - run: dotnet test --no-build Test.CICDFlow
+      - run:
+          name: Install Docker client
+          command: apk add docker-cli
       - run: 
           command: |
              docker info
