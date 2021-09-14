@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.CICDFlow", "Test.CICDFlow\Test.CICDFlow.csproj", "{6ED77FBC-9155-4042-B0C8-3D40E0F50FDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6ED77FBC-9155-4042-B0C8-3D40E0F50FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED77FBC-9155-4042-B0C8-3D40E0F50FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED77FBC-9155-4042-B0C8-3D40E0F50FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED77FBC-9155-4042-B0C8-3D40E0F50FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5AF95ECF-76F8-4DEC-B295-D7F2755415C5}
+	EndGlobalSection
+EndGlobal
