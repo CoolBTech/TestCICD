@@ -21,7 +21,7 @@ jobs:
           docker_layer_caching: false
       - run:
           name: Build and push Docker image
-          command: dotnet run
+          command: docker build -t Test.CICDFlow .
           working_directory: Test.CICDFlow
 
            # echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
