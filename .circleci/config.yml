@@ -22,6 +22,8 @@ jobs:
       - run:
           name: Build and push Docker image
           command: dotnet run
+          working_directory: Test.CICDFlow
+
            # echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
            # docker tag boku herocod3r/MyProject
           #  docker push herocod3r/MyProject
