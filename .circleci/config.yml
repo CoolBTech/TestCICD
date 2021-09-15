@@ -31,5 +31,5 @@ deploy:
       - run:
           name: Azure Staging Deploy
           command: |
-          cd /tmp/workspace
-          ls -l
+            cd /tmp/workspace
+            ls -l
