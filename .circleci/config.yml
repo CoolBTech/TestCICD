@@ -28,4 +28,8 @@ deploy:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-
+      - run:
+          name: Azure Staging Deploy
+          command: |
+          cd /tmp/workspace
+          ls -l
