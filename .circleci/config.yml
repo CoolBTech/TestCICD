@@ -23,7 +23,7 @@ jobs:
             echo $CIRCLE_BRANCH
             echo ${MY_ENV_VAR}
             echo ${PROJECTNAME}
-            echo ${Version}
+            echo $Version
             echo $pipeline.number
       - setup_remote_docker:
           version: 19.03.13
