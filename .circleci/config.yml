@@ -6,6 +6,8 @@ jobs:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:3.1
       - image: circleci/php:7.2-node-browsers
+    environment:
+      VERSION_NUMBER: 0.0.0.<<pipeline.number>>
     steps:
       - checkout
       - setup_remote_docker:
