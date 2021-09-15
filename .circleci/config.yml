@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
          name: Install PHP zip
-         command: apt-get install -y zip
+         command: sudo docker-php-ext-install zip
       - setup_remote_docker:
           version: 19.03.13
           docker_layer_caching: false
