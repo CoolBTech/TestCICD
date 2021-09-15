@@ -40,13 +40,10 @@ jobs:
             cd ../app-publish
             echo $VERSION_NUMBER
             echo  pipeline.number 
-      - run:
-          name: Compress Artifacts
-          command: |
-            zip -cvzf myartifact.zip ../app-publish
-      - store_artifacts: 
-           path: myartifact.tar
-           destination: TestCICDApp
+      - store_artifacts:
+           path: ../app-publish
+           destination: artifact-file
+
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
