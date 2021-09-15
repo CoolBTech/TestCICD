@@ -9,6 +9,7 @@ jobs:
     environment:
       VERSION_NUMBER: 0.0.0.<< pipeline.TestVar >>
       PROJECT_NAME: ${PROJECTNAME}
+    context: TestCICD
     steps:
       - checkout
       - run:
