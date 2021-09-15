@@ -8,7 +8,7 @@ jobs:
       - image: circleci/php:7.2-node-browsers
     environment:
       VERSION_NUMBER: 0.0.0.<< pipeline.TestVar >>
-      PROJECTNAME: ${PROJECTNAME}
+      PROJECT_NAME: ${PROJECTNAME}
     steps:
       - checkout
       - run:
@@ -52,7 +52,7 @@ jobs:
             tar -cvzf myartifact.tar ../app-publish
       - store_artifacts: 
            path: myartifact.tar
-           destination: $PROJECTNAME
+           destination: $PROJECT_NAME
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
