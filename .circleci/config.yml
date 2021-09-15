@@ -52,7 +52,7 @@ jobs:
             tar -cvzf myartifact.tar ../app-publish
       - store_artifacts: 
            path: myartifact.tar
-           destination: $PROJECT_NAME
+           destination: ${PROJECTNAME}
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
