@@ -15,7 +15,6 @@ jobs:
       - run:
           name: Build for Release
           command: |
-            cd backend
             dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release /property:Version=$VERSION_NUMBER -o ../app-publish --runtime win-x64
             cd ../app-publish
             zip -r ../app-publish.zip *
