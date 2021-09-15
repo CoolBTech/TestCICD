@@ -42,8 +42,16 @@ jobs:
             echo  pipeline.number 
       - store_artifacts:
            path: ~/reports
+          #path: ../app-publish
+          #destination: artifact-file
+
       - store_test_results:
            path: ~/reports
+       - persist_to_workspace: # store the built files into the workspace for other jobs.
+          root: ./
+          paths:
+            - app-publish
+            - reports
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
