@@ -20,7 +20,7 @@ jobs:
           command: |
             dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release -p:UseAppHost=false -o ../app-publish
             cd ../app-publish
-
+            echo 0.0.0.<< pipeline.number >>
       - store_artifacts:
           path: ../app-publish
           destination: artifact-file
