@@ -42,8 +42,7 @@ jobs:
             echo  pipeline.number 
       - store_artifacts:
            path: ../app-publish
-          #path: ../app-publish
-          #destination: artifact-file
+           destination: artifact-file
      # - store_artifacts:
      #      path: ~/reports
       - store_test_results:
