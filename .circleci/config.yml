@@ -15,7 +15,15 @@ jobs:
       - run:
           name: Install Docker client
           command: apk add docker-cli
-      - run: 
+       - run:
+          name: Build for Release
           command: |
-             docker info
-             docker build -t aspnetapp -f Dockerfile .
+            cd backend
+            dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release /property:Version=$VERSION_NUMBER -o ../app-publish --runtime win-x64
+            cd ../app-publish
+            zip -r ../app-publish.zip *
+            
+      - persist_to_workspace: # store the built files into the workspace for other jobs.
+          root: ./
+          paths:
+            - app-publish.zip
