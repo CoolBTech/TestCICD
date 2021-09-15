@@ -43,7 +43,7 @@ jobs:
       - store_artifacts:
            path: ../app-publish
            destination: bin
-     - store_artifacts:
+      - store_artifacts:
            path: ~/reports
            destination: reports
       - store_test_results:
