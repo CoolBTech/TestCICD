@@ -43,7 +43,8 @@ jobs:
       - store_artifacts:
            path: ../app-publish
            destination: artifact-file
-
+      - store_test_results:
+           path: test-results
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
