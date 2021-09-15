@@ -8,6 +8,7 @@ jobs:
       - image: circleci/php:7.2-node-browsers
     environment:
       VERSION_NUMBER: 0.0.0.<< pipeline.TestVar >>
+      PROJECTNAME: << pipeline.TestVar >>
     steps:
       - checkout
       - setup_remote_docker:
@@ -25,12 +26,12 @@ jobs:
             echo $VERSION_NUMBER
             echo  pipeline.number 
       - run:
-          name: Build for Release
+          name: Compress Artifacts
           command: |
             tar -cvzf myartifact.tar ../app-publish
       - store_artifacts: 
            path: myartifact.tar
-           destination: artifact_name
+           destination: $PROJECTNAME
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
