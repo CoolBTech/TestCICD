@@ -13,9 +13,6 @@ jobs:
       - run: dotnet build
       - run: dotnet test --no-build Test.CICDFlow
       - run:
-          name: Install Docker client
-          command: apk add docker-cli
-      - run:
           name: Build for Release
           command: |
             cd backend
