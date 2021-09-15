@@ -43,7 +43,7 @@ jobs:
       - run:
           name: Compress Artifacts
           command: |
-            tar -cvzf myartifact.tar ../app-publish
+            zip -cvzf myartifact.zip ../app-publish
       - store_artifacts: 
            path: myartifact.tar
            destination: TestCICDApp
