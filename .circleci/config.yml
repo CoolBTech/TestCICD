@@ -31,7 +31,8 @@ jobs:
       - run: find .
       - run: dotnet restore
       - run: dotnet build
-      - run: dotnet test --no-build Test.CICDFlow.Tests
+      #- run: dotnet test --no-build Test.CICDFlow.Tests
+      - run: dotnet test --collect:"XPlat Code Coverage"
       - run:
           name: Build for Release
           command: |
