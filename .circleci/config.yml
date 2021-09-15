@@ -28,12 +28,11 @@ jobs:
      #     path: ../app-publish
      #     destination: artifact-file
      - run:
-        name: Compress Artifacts
-        command: tar -cvzf myartifact.tar ../app-publish
-
+         name: Compress Artifacts
+         command: tar -cvzf myartifact.tar ../app-publish
      - store_artifacts: 
-          path: myartifact.tar
-          destination: artifact_name
+         path: myartifact.tar
+         destination: artifact_name
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
