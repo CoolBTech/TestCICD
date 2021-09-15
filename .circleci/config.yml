@@ -31,7 +31,7 @@ jobs:
       - run: find .
       - run: dotnet restore
       - run: dotnet build
-      - run: dotnet test --no-build Test.CICDFlow
+      - run: dotnet test --no-build Test.CICDFlow.Tests
       - run:
           name: Build for Release
           command: |
