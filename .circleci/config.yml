@@ -44,7 +44,8 @@ jobs:
            path: ../app-publish
           #path: ../app-publish
           #destination: artifact-file
-
+      - store_artifacts:
+        path: ~/reports
       - store_test_results:
            path: ~/reports
       - persist_to_workspace: # store the built files into the workspace for other jobs.
