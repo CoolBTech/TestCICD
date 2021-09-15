@@ -20,3 +20,12 @@ jobs:
           command: |
             dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release -p:UseAppHost=false -o ../app-publish
             cd ../app-publish
+deploy:
+    docker:
+      - image: mcr.microsoft.com/azure-cli:latest
+    environment:
+      VERSION_NUMBER: 0.0.0.1
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+
