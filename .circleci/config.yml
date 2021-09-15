@@ -32,7 +32,7 @@ jobs:
       - run: dotnet restore
       - run: dotnet build
       #- run: dotnet test --no-build Test.CICDFlow.Tests
-      - run: dotnet test -v n --results-directory:test_coverage  --collect:"XPlat Code Coverage"
+      - run: dotnet test  --collect:"XPlat Code Coverage" -v m -r ~/reports/
       - run:
           name: Build for Release
           command: |
@@ -44,7 +44,7 @@ jobs:
            path: ../app-publish
            destination: artifact-file
       - store_test_results:
-           path: artifact-file\test_coverage
+           path: ~/reports
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
