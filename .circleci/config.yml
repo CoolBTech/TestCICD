@@ -23,13 +23,7 @@ jobs:
             dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release -p:UseAppHost=false -o ../app-publish
             cd ../app-publish
             echo $VERSION_NUMBER
-            echo  pipeline.number 
-     - run:
-         name: Compress Artifacts
-         command: tar -cvzf myartifact.tar ../app-publish
-     - store_artifacts: 
-         path: myartifact.tar
-         destination: artifact_name
+            echo  pipeline.number
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
