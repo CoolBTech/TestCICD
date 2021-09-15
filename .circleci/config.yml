@@ -6,7 +6,6 @@ jobs:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:3.1
       - image: circleci/php:7.2-node-browsers
-    working_directory: /tmp
     steps:
       - checkout
       - setup_remote_docker:
@@ -21,19 +20,10 @@ jobs:
           command: |
             dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release -p:UseAppHost=false -o ../app-publish
             cd ../app-publish
-      - run:
-          name: Creating Dummy Artifacts
-          command: |
-            echo "my artifact file" > /tmp/artifact-1;
-            mkdir /tmp/artifacts;
-            echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
 
       - store_artifacts:
-          path: /tmp/artifact-1
+          path: ../app-publish
           destination: artifact-file
-
-      - store_artifacts:
-          path: /tmp/artifacts
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
