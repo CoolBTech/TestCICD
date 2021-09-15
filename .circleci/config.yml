@@ -8,9 +8,6 @@ jobs:
       - image: circleci/php:7.2-node-browsers
     steps:
       - checkout
-      - run:
-         name: Install PHP zip
-         command: sudo docker-php-ext-install zip
       - setup_remote_docker:
           version: 19.03.13
           docker_layer_caching: false
