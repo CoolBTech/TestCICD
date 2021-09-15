@@ -41,7 +41,9 @@ jobs:
             echo $VERSION_NUMBER
             echo  pipeline.number 
       - store_artifacts:
-           path: ~/reports
+           path: 
+             - app-publish
+             - reports
           #path: ../app-publish
           #destination: artifact-file
 
