@@ -31,7 +31,7 @@ jobs:
           command: echo ${TestVar}
       - run:
           name: "Print an env var stored in a Context"
-          command: echo ${CONTEXT_ENV_VAR}
+          command: echo ${Version}
       - setup_remote_docker:
           version: 19.03.13
           docker_layer_caching: false
