@@ -24,13 +24,13 @@ jobs:
             cd ../app-publish
             echo $VERSION_NUMBER
             echo  pipeline.number 
-     - run:
-         name: Compress Artifacts
-         command: |
+      - run:
+          name: Build for Release
+          command: |
             tar -cvzf myartifact.tar ../app-publish
-     - store_artifacts: 
-         path: myartifact.tar
-         destination: artifact_name
+      - store_artifacts: 
+           path: myartifact.tar
+           destination: artifact_name
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
