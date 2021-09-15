@@ -42,7 +42,7 @@ jobs:
             echo  pipeline.number 
       - store_artifacts:
            root: ../
-           path: 
+           paths: 
              - app-publish
              - reports
           #path: ../app-publish
