@@ -70,10 +70,10 @@ jobs:
     steps:
       - checkout
       - azure-aks/update-kubeconfig-with-credentials:
-          cluster-name: << parameters.cluster_name >>
+          cluster-name: sff
           install-kubectl: true
           perform-login: true
-          resource-group: << parameters.resource_group >>
+          resource-group: sfsf
  deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
