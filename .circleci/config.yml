@@ -55,28 +55,7 @@ jobs:
           paths:
             - app-publish
             - reports
-  test-cluster:
-    executor: azure-aks/default
-    parameters:
-      cluster-name:
-        description: |
-          Name of the AKS cluster
-        type: string
-      resource-group:
-        description: |
-          Resource group that the cluster is in
-        type: string
-    steps:
-      - azure-aks/update-kubeconfig-with-credentials:
-          cluster-name: << parameters.cluster-name >>
-          install-kubectl: true
-          perform-login: true
-          resource-group: << parameters.resource-group >>
-      - run:
-          command: |
-            kubectl get services
-          name: Test cluster
-
+  
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
