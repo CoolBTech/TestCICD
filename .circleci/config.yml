@@ -11,6 +11,9 @@ parameters:
   started-by:
     type: string
     default: "john"
+  team-name:
+    type: string
+    default: "ecom"
 jobs:
  build:
    # context: TestCICD
