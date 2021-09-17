@@ -76,6 +76,11 @@ jobs:
           install-kubectl: true
           perform-login: true
           resource-group: << parameters.resource_group >>
+      - run:
+          name: "Environment Variable"
+          command: |
+            echo ${parameters.cluster_name}
+            echo ${parameters.resource_group}
  deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
