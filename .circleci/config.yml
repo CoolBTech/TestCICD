@@ -69,6 +69,11 @@ jobs:
         type: string
     steps:
       - checkout
+      - azure-aks/update-kubeconfig-with-credentials:
+          cluster-name: << parameters.cluster_name >>
+          install-kubectl: true
+          perform-login: true
+          resource-group: << parameters.resource_group >>
  deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
