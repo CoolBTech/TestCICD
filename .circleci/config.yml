@@ -51,11 +51,12 @@ jobs:
           command: |
             dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release -p:UseAppHost=false -o ../app-publish
             cd ../app-publish
+            # Zip publish files
             zip -r ../app-publish.zip *
             echo $VERSION_NUMBER
             echo  pipeline.number 
       - store_artifacts:
-           path: ../app-publishz.zip
+           path: ../app-publish.zip
            destination: bin
       - store_artifacts:
            path: ~/reports
