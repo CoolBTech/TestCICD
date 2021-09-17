@@ -63,12 +63,12 @@ jobs:
         description: |
           Name of the AKS cluster
         type: string
-        default: "latest"
+        default: ${cluster_name}
       resource_group:
         description: |
           Resource group that the cluster is in
         type: string
-        default: "latest"
+        default: ${resource_group}
     steps:
       - checkout
       - run:
