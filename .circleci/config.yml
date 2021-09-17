@@ -35,7 +35,7 @@ jobs:
       - run:
            name: "Setup custom environment variables"
            command: |
-            echo 'export MY_ENV_VAR="FOO"' >> $BASH_ENV
+            echo 'export MY_ENV_VAR="TESTVAR"' >> $BASH_ENV
       - run:
           name: "Environment Variable"
           command: |
