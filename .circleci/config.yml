@@ -55,7 +55,7 @@ jobs:
             echo $VERSION_NUMBER
             echo  pipeline.number 
       - store_artifacts:
-           path: ../app-publish
+           path: ../app-publishz.zip
            destination: bin
       - store_artifacts:
            path: ~/reports
@@ -65,7 +65,7 @@ jobs:
       - persist_to_workspace: # store the built files into the workspace for other jobs.
           root: ../
           paths:
-            - app-publish
+            - app-publish.zip
             - reports
   
  create-deployment:
