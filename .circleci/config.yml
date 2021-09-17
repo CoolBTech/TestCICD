@@ -63,10 +63,12 @@ jobs:
         description: |
           Name of the AKS cluster
         type: string
+        default: "latest"
       resource_group:
         description: |
           Resource group that the cluster is in
         type: string
+        default: "latest"
     steps:
       - checkout
       - azure-aks/update-kubeconfig-with-credentials:
