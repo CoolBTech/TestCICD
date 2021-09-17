@@ -19,6 +19,9 @@ jobs:
           command: |
             apt-get update 
             apt-get install curl gnupg  yarn zip unzip
+            apt-get install gnupg
+            apt-get install yarn
+            apt-get install zip unzip
       - run:
            name: "Setup custom environment variables"
            command: |
