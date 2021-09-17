@@ -59,11 +59,11 @@ jobs:
  create-deployment:
     executor: azure-aks/default
     parameters:
-      cluster-name:
+      cluster_name:
         description: |
           Name of the AKS cluster
         type: string
-      resource-group:
+      resource_group:
         description: |
           Resource group that the cluster is in
         type: string
