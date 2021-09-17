@@ -8,7 +8,6 @@ jobs:
  build:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:3.1
-      - image: circleci/php:7.2-node-browsers
     environment:
       #VERSION_NUMBER: 0.0.0.<< pipeline.TestVar >>
       PROJECT_NAME: ${PROJECTNAME}
@@ -40,6 +39,7 @@ jobs:
           name: Build for Release
           command: |
             dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release -p:UseAppHost=false -o ../app-publish
+            apt-get install -y sudo
             sudo apt-get install zip unzip
             cd ../app-publish
             echo $VERSION_NUMBER
