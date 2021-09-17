@@ -35,9 +35,7 @@ jobs:
             echo ${PROJECTNAME}
             echo $Version
             echo $pipeline.number
-      - setup_remote_docker:
-          version: 19.03.13
-          docker_layer_caching: false
+ 
       - run: find .
       - run: dotnet restore
       - run: dotnet build
