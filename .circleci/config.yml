@@ -50,10 +50,8 @@ jobs:
           name: Build for Release
           command: |
             dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release -p:UseAppHost=false -o ../app-publish
-            apt-get update
-            apt-get install -y sudo
-            sudo apt-get install zip unzip
             cd ../app-publish
+            zip -r ../app-publish.zip *
             echo $VERSION_NUMBER
             echo  pipeline.number 
       - store_artifacts:
