@@ -83,7 +83,25 @@ jobs:
           install-kubectl: true
           perform-login: true
           resource-group: << parameters.resource_group >>
-      
+ install:
+        description: |
+            Install the Azure CLI
+        usage:
+            version: "2.1"
+            orbs:
+                azure-cli: circleci/azure-cli@1.0.0
+            jobs:
+                verify-install:
+                    executor: azure-cli/default
+                    steps:
+                        - azure-cli/install
+                        - run:
+                            command: az -v
+                            name: Verify Azure CLI is installed
+            workflows:
+                example-workflow:
+                    jobs:
+                        - verify-install     
  deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
@@ -102,5 +120,5 @@ workflows:
   deployment:
     jobs:
       - build
-      - create-deployment
+      - install
       - deploy
