@@ -105,7 +105,7 @@ jobs:
           install-kubectl: true
           perform-login: true
           resource-group: << parameters.resource_group >>
- verify-install:
+ verify-azure-install:
      executor: azure-cli/default
      steps:
        - azure-cli/install
@@ -135,8 +135,8 @@ workflows:
   build-and-verify:
       jobs:
         - build
-        - verify-install
   deploy:
       when: << pipeline.parameters.deploy >>
       jobs:
+        - verify-azure-install
         - deploy
