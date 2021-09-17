@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Build for Release
           command: |
-            dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release /property:Version=$VERSION_NUMBER -o ../app-publish --self-contained -r linux-musl-x64
+            dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release -o ../app-publish --self-contained -r linux-musl-x64
             cd ../app-publish
             # Zip publish files
             zip -r ../app-publish.zip *
