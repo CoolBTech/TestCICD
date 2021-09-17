@@ -1,6 +1,8 @@
 version: 2
 orbs:
   build-tools: circleci/build-tools@2.9.1
+  azure-aks: circleci/azure-aks@0.2.1
+  kubernetes: circleci/kubernetes@0.4.0
 jobs:
   build:
     docker:
