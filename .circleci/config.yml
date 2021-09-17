@@ -76,8 +76,8 @@ jobs:
           command: |
             echo << parameters.cluster_name >>
             echo << parameters.resource_group >>
-            echo << cluster_name >>
-            echo << resource_group >>
+            echo ${cluster_name}
+            echo ${resource_group}
       - azure-aks/update-kubeconfig-with-credentials:
           cluster-name:  << parameters.cluster_name >>
           install-kubectl: true
