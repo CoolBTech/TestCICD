@@ -1,10 +1,19 @@
-version: 2
+version: 2.1
 orbs:
   build-tools: circleci/build-tools@2.9.1
-  azure-aks: circleci/azure-aks@0.2.1
+  azure-aks: circleci/azure-aks@0.3.0
   kubernetes: circleci/kubernetes@0.4.0
 jobs:
   build:
+    parameters:
+      cluster-name:
+        description: |
+          Name of the AKS cluster
+        type: string
+      resource-group:
+        description: |
+          Resource group that the cluster is in
+        type: string
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:5
       - image: circleci/php:7.2-node-browsers
@@ -55,18 +64,6 @@ jobs:
           paths:
             - app-publish
             - reports
-  test-cluster:
-    executor: azure-aks/default
-    parameters:
-      cluster-name:
-        description: |
-          Name of the AKS cluster
-        type: string
-      resource-group:
-        description: |
-          Resource group that the cluster is in
-        type: string
-    steps:
       - azure-aks/update-kubeconfig-with-credentials:
           cluster-name: << parameters.cluster-name >>
           install-kubectl: true
@@ -76,7 +73,6 @@ jobs:
           command: |
             kubectl get services
           name: Test cluster
-
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
