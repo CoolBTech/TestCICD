@@ -56,7 +56,7 @@ jobs:
             - app-publish
             - reports
   
-create-deployment:
+  create-deployment:
     executor: azure-aks/default
     parameters:
       cluster-name:
@@ -74,7 +74,7 @@ create-deployment:
           install-kubectl: true
           perform-login: true
           resource-group: << parameters.resource-group >>
-deploy:
+  deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
     environment:
