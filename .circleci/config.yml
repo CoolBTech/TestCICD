@@ -4,7 +4,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: mcr.microsoft.com/dotnet/sdk:3.1
+      - image: mcr.microsoft.com/dotnet/sdk:5
       - image: circleci/php:7.2-node-browsers
     environment:
       VERSION_NUMBER: 0.0.0.<< pipeline.TestVar >>
@@ -53,6 +53,28 @@ jobs:
           paths:
             - app-publish
             - reports
+  test-cluster:
+    executor: azure-aks/default
+    parameters:
+      cluster-name:
+        description: |
+          Name of the AKS cluster
+        type: string
+      resource-group:
+        description: |
+          Resource group that the cluster is in
+        type: string
+    steps:
+      - azure-aks/update-kubeconfig-with-credentials:
+          cluster-name: << parameters.cluster-name >>
+          install-kubectl: true
+          perform-login: true
+          resource-group: << parameters.resource-group >>
+      - run:
+          command: |
+            kubectl get services
+          name: Test cluster
+
 deploy:
     docker:
       - image: mcr.microsoft.com/azure-cli:latest
