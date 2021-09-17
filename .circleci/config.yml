@@ -17,11 +17,11 @@ jobs:
       - run:
           name: Install Build/System Dependencies
           command: |
-            apt-get update -y
-            apt-get install curl gnupg -y
-            apt-get install nodejs -y
-            apt-get install yarn -y
-            apt-get install zip -y
+            apt-get update -yq
+            apt-get install curl gnupg -yq
+            apt-get install nodejs -yq
+            apt-get install yarn -yq
+            apt-get install zip -yq
       - run:
            name: "Setup custom environment variables"
            command: |
@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Build for Release
           command: |
-            dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release -p:UseAppHost=false -o ../app-publish
+            dotnet publish ./Test.CICDFlow/Test.CICDFlow.csproj -c Release -p:UseAppHost=false -o ../app-publish --self-contained -r linux-musl-x64
             cd ../app-publish
             # Zip publish files
             zip -r ../app-publish.zip *
@@ -54,7 +54,7 @@ jobs:
             echo  pipeline.number 
       - store_artifacts:
            path: ../app-publish.zip
-           destination: bin
+           destination: publish
       - store_artifacts:
            path: ~/reports
            destination: reports
