@@ -87,3 +87,9 @@ deploy:
           command: |
             cd /tmp/workspace
             ls -l
+workflows:
+  deployment:
+    jobs:
+      - build
+      - create-deployment
+      - deploy
