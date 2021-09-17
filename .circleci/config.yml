@@ -10,7 +10,7 @@ jobs:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:3.1
     environment:
-      VERSION_NUMBER: 0.0.0.<< pipeline.TestVar >>
+      #VERSION_NUMBER: 0.0.0.<< pipeline.TestVar >>
       PROJECT_NAME: ${PROJECTNAME}  
     steps:
       - checkout
