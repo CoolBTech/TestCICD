@@ -17,11 +17,11 @@ jobs:
       - run:
           name: Install Build/System Dependencies
           command: |
-            apt-get update -yq
-            apt-get install curl gnupg -yq
-            apt-get install nodejs -yq
-            apt-get install yarn -yq
-            apt-get install zip -yq
+            apt-get update -y
+            apt-get install curl gnupg -y
+            apt-get install nodejs -y
+            apt-get install yarn -y
+            apt-get install zip -y
       - run:
            name: "Setup custom environment variables"
            command: |
