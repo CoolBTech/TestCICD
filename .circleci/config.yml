@@ -93,7 +93,7 @@ jobs:
            name: Verify Azure CLI is installed
        - run:
            command: |
-                    $SUDO apt-get update
+                    $SUDO apt-get install zip unzip
                     az account set --subscription 669192b3-0010-41ad-bf24-eb07b74d6c6c
 
            name: Login to the Azure CLI via Service Principal
