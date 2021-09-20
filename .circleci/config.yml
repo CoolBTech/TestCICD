@@ -76,8 +76,7 @@ jobs:
           root: ../
           paths:
             - app-publish.zip
-            - reports
-  
+            - reports  
  create-deployment:
     executor: azure-aks/default
     parameters:
